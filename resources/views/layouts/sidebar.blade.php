@@ -117,41 +117,40 @@
                 </ul>
             </li>
         </ul>
-        <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Forms &amp; Tables
+        <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Management
         </div>
         <ul class="pcoded-item pcoded-left-item">
             <li>
-                <a href="form-elements-component.html">
-                    <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                    <span class="pcoded-mtext" data-i18n="nav.form-components.main">Form
-                        Components</span>
+                <a href="{{ route('kriteria.index') }}">
+                    <span class="pcoded-micon"><i class="ti-layers"></i><b>M</b></span>
+                    <span class="pcoded-mtext" data-i18n="nav.form-components.main">Daftar Kriteria</span>
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
             <li>
-                <a href="bs-basic-table.html">
+                <a href="{{ route('karyawan.index') }}">
                     <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                    <span class="pcoded-mtext" data-i18n="nav.form-components.main">Basic
-                        Table</span>
+                    <span class="pcoded-mtext" data-i18n="nav.form-components.main">Daftar
+                        Karyawan</span>
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
 
         </ul>
 
-        <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Chart &amp; Maps</div>
+        <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Nilai &amp; Ranking</div>
         <ul class="pcoded-item pcoded-left-item">
             <li>
-                <a href="chart.html">
+                <a href="{{ route('nilai.index') }}">
                     <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                    <span class="pcoded-mtext" data-i18n="nav.form-components.main">Chart</span>
+                    <span class="pcoded-mtext" data-i18n="nav.form-components.main">Nilai</span>
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
             <li>
                 <a href="map-google.html">
                     <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                    <span class="pcoded-mtext" data-i18n="nav.form-components.main">Maps</span>
+                    <span class="pcoded-mtext" data-i18n="nav.form-components.main">Ranking</span>
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>

@@ -1,5 +1,4 @@
 @extends('layouts.main')
-
 @section('content')
     <div class="row justify-content-center">
         <!-- card1 start -->
@@ -7,7 +6,7 @@
             <div class="card widget-card-1">
                 <div class="card-block-small">
                     <i class="icofont icofont-pie-chart bg-c-blue card1-icon"></i>
-                    <span class="text-c-blue f-w-600">Use space</span>
+                    <span class="text-c-blue f-w-600">Kriteria</span>
                     <h4>49/50GB</h4>
                     <div>
                         <span class="f-left m-t-10 text-muted">
@@ -24,7 +23,7 @@
             <div class="card widget-card-1">
                 <div class="card-block-small">
                     <i class="icofont icofont-ui-home bg-c-pink card1-icon"></i>
-                    <span class="text-c-pink f-w-600">Revenue</span>
+                    <span class="text-c-pink f-w-600">Karyawan</span>
                     <h4>$23,589</h4>
                     <div>
                         <span class="f-left m-t-10 text-muted">

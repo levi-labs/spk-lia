@@ -32,9 +32,15 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.mCustomScrollbar.css') }}">
 </head>
 
+<style>
+    th {
+        text-align: center !important;
+    }
+</style>
+
 <body>
     <!-- Pre-loader start -->
-    <div class="theme-loader">
+    {{-- <div class="theme-loader">
         <div class="ball-scale">
             <div class='contain'>
                 <div class="ring">
@@ -70,7 +76,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Pre-loader end -->
     <div id="pcoded" class="pcoded">
         <div class="pcoded-overlay-box"></div>
