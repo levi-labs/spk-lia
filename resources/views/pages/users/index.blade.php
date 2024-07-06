@@ -20,24 +20,18 @@
                 <div class="card-block table-border-style" style="">
                     <div class="row mx-2 my-2">
                         <div class="col-md-4">
-                            {{-- input karyawan without nilai --}}
-                            <a href="{{ route('karyawan.create') }}" class="btn btn-primary">Tambah</a>
-
-                            {{-- input karyawan with nilai --}}
-                            {{-- <a href="{{ route('karyawan.create.second') }}" class="btn btn-secondary">Tambah</a> --}}
+                            <a href="{{ route('users.create') }}" class="btn btn-primary">Tambah</a>
                         </div>
                     </div>
 
                     <div class="table-responsive">
-
                         <table class="table table-hover table-bordered text-center">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Nama</th>
-                                    <th>NIK</th>
-                                    <th>Jabatan</th>
-                                    <th>Email</th>
+                                    <th>Nama </th>
+                                    <th>Username</th>
+                                    <th>Level User</th>
                                     <th>Option</th>
                                 </tr>
                             </thead>
@@ -46,12 +40,11 @@
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>{{ $item->nama }}</td>
-                                        <td>{{ $item->nik }}</td>
-                                        <td>{{ $item->jabatan }}</td>
-                                        <td>{{ $item->email }}</td>
+                                        <td>{{ $item->username }}</td>
+                                        <td>{{ $item->level_user }}</td>
                                         <td>
-                                            <a href="{{ route('karyawan.edit', $item->id) }}" class="btn btn-info">Edit</a>
-                                            <form action="{{ route('karyawan.delete', $item->id) }}" method="POST"
+                                            <a href="{{ route('users.edit', $item->id) }}" class="btn btn-info">Edit</a>
+                                            <form action="{{ route('users.delete', $item->id) }}" method="POST"
                                                 class="d-inline">
                                                 @csrf
                                                 @method('DELETE')

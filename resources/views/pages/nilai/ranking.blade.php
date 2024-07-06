@@ -5,7 +5,7 @@
             <div class="card">
 
                 <div class="card-header">
-                    <h5>{{ $title }}</h5>
+                    <h5>Ranking</h5>
                 </div>
                 @if (session()->has('success'))
                     <div class="alert alert-success">
@@ -20,42 +20,25 @@
                 <div class="card-block table-border-style" style="">
                     <div class="row mx-2 my-2">
                         <div class="col-md-4">
-                            <a href="{{ route('nilai.create') }}" class="btn btn-primary">Tambah</a>
-                            <a href="{{ route('nilai.process') }}" class="btn btn-secondary">Process</a>
+                            {{-- <a href="{{ route('nilai.index') }}" class="btn btn-primary">Kembali</a> --}}
                         </div>
                     </div>
 
                     <div class="table-responsive">
-
                         <table class="table table-hover table-bordered text-center">
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Nama</th>
-                                    <th>Perilaku</th>
-                                    <th>Kehadiran</th>
-                                    <th>Masa Kerja</th>
-                                    <th>Pendidikan</th>
-                                    <th>Pencapaian Target</th>
+                                    <th>Nilai</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($show_normalisasi as $item)
-                                    @php
-                                        $karyawan = \App\Models\Karyawan::find($item['karyawan_id']);
-                                    @endphp
+                                @foreach ($ranking as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $karyawan->nama }}</td>
-                                        <td>{{ $item[1] }}</td>
-                                        <td>{{ $item[2] }}</td>
-                                        <td>{{ $item[3] }}</td>
-                                        <td>{{ $item[4] }}</td>
-                                        <td>{{ $item[5] }}</td>
-                                        {{-- <td>
-                                            <a href="{{ route('nilai.detail', $item->karyawan->id) }}"
-                                                class="btn btn-primary">Detail</a>
-                                        </td> --}}
+                                        <td>{{ $item->nama }}</td>
+                                        <td>{{ $item->nilai }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -65,4 +48,51 @@
             </div>
         </div>
     </div>
+    <div class="row justify-content-center">
+        <div class="col-md-7 ">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Nilai Ranking</h5>
+                    {{-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> --}}
+                    <div class="card-header-right"> <i class="icofont icofont-spinner-alt-5"></i> </div>
+                </div>
+                <div class="card-block">
+                    <div>
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        const generateRandomColor = () => {
+            return '#' + Math.floor(Math.random() * 16777215).toString(16);
+        };
+        const randomColors = Array.from({
+            length: {!! $ranking->count() !!}
+        }, generateRandomColor);
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {!! json_encode($ranking->pluck('nama')->toArray()) !!},
+                datasets: [{
+                    label: 'Score',
+                    data: {!! json_encode($ranking->pluck('nilai')->toArray()) !!},
+                    borderWidth: 1,
+                    backgroundColor: randomColors
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 @endsection

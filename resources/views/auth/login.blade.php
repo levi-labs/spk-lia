@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>GURU Able - Free Lite Admin Template </title>
+    <title>Login Page</title>
     <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -20,93 +20,78 @@
     <!-- Favicon icon -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <!-- Google font-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
     <!-- Required Fremwork -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap/css/bootstrap.min.css') }}">
     <!-- themify-icons line icon -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/icon/themify-icons/themify-icons.css') }}">
     <!-- ico font -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/icon/icofont/css/icofont.css') }}">
+    <link rel="stylesheet" type="text/css" href="a{{ asset('ssets/icon/icofont/css/icofont.css') }}">
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.mCustomScrollbar.css') }}">
 </head>
 
-<style>
-    th {
-        text-align: center !important;
-    }
-</style>
-
-<body>
+<body class="fix-menu">
     <!-- Pre-loader start -->
-    {{-- <div class="theme-loader">
-        <div class="ball-scale">
-            <div class='contain'>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
 
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
     <!-- Pre-loader end -->
-    <div id="pcoded" class="pcoded">
-        <div class="pcoded-overlay-box"></div>
-        <div class="pcoded-container navbar-wrapper">
 
-            @include('layouts.navbar')
-            <div class="pcoded-main-container">
-                <div class="pcoded-wrapper">
-                    @include('layouts.sidebar')
-                    <div class="pcoded-content">
-                        <div class="pcoded-inner-content">
-                            <div class="main-body">
-                                <div class="page-wrapper">
+    <section class="login p-fixed d-flex text-center bg-primary common-img-bg">
+        <!-- Container-fluid starts -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- Authentication card start -->
+                    <div class="login-card card-block auth-body mr-auto ml-auto">
+                        <form class="md-float-material" action="{{ route('login') }}" method="POST">
+                            @csrf
+                            <div class="text-center">
+                                <img width="50%" class="img-fluid" src="assets/logo.png" alt="logo.png">
+                            </div>
+                            <div class="auth-box">
+                                <div class="row m-b-20">
+                                    <div class="col-md-12">
+                                        <h3 class="text-left txt-primary">Sign In</h3>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="username" name="username">
+                                    {{-- <span class="md-line"></span> --}}
+                                    @error('username')
+                                        <span class="text-danger text-sm">{{ $message }}</span>
+                                    @enderror
+                                </div>
 
-                                    <div class="page-body">
-                                        @yield('content')
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Password" name="password">
+                                    {{-- <span class="md-line"></span> --}}
+                                    @error('password')
+                                        <span class="text-danger text-sm">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                                <div class="row m-t-30">
+                                    <div class="col-md-12">
+                                        <button type="submit"
+                                            class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Sign
+                                            in</button>
                                     </div>
                                 </div>
 
-                                <div id="styleSelector">
 
-                                </div>
                             </div>
-                        </div>
+                        </form>
+                        <!-- end of form -->
                     </div>
+                    <!-- Authentication card end -->
                 </div>
+                <!-- end of col-sm-12 -->
             </div>
+            <!-- end of row -->
         </div>
-    </div>
-
+        <!-- end of container-fluid -->
+    </section>
     <!-- Warning Section Starts -->
     <!-- Older IE warning message -->
     <!--[if lt IE 9]>
@@ -160,29 +145,8 @@
     <script type="text/javascript" src="{{ asset('assets/js/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
     <!-- modernizr js -->
     <script type="text/javascript" src="{{ asset('assets/js/modernizr/modernizr.js') }}"></script>
-    <!-- am chart -->
-    <script src="{{ asset('assets/pages/widget/amchart/amcharts.min.js') }}"></script>
-    <script src="{{ asset('assets/pages/widget/amchart/serial.min.js') }}"></script>
-    <!-- Todo js -->
-    <script type="text/javascript " src="{{ asset('assets/pages/todo/todo.js') }} "></script>
-    <!-- Custom js -->
-    <script type="text/javascript" src="{{ asset('assets/pages/dashboard/custom-dashboard.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/script.js') }}"></script>
-    <script type="text/javascript " src="{{ asset('assets/js/SmoothScroll.js') }}"></script>
-    <script src="{{ asset('assets/js/pcoded.min.js') }}"></script>
-    <script src="{{ asset('assets/js/demo-12.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-    <script>
-        var $window = $(window);
-        var nav = $('.fixed-button');
-        $window.scroll(function() {
-            if ($window.scrollTop() >= 200) {
-                nav.addClass('active');
-            } else {
-                nav.removeClass('active');
-            }
-        });
-    </script>
+    <script type="text/javascript" src="{{ asset('assets/js/modernizr/css-scrollbars.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/common-pages.js') }}"></script>
 </body>
 
 </html>

@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Polyfill\Intl\Idn\Idn;
 
+use function Laravel\Prompts\select;
+
 class NilaiController extends Controller
 {
     /**
@@ -291,17 +293,34 @@ class NilaiController extends Controller
             $output->writeln('Creating sample users...');
         }
 
-        $rangking = DB::table('ranking')->get();
+        $ranking = DB::table('ranking')
+            ->join('karyawan', 'karyawan.id', '=', 'ranking.karyawan_id')
+            ->select('karyawan.nama', 'karyawan.id', 'ranking.nilai')
+            ->orderBy('ranking.nilai', 'desc')
+            ->get();
         // dd($new_array, $rearrangedArray, $rangking, $nilai);
         return view('pages.nilai.ranking', compact(
             'title',
             'nilai',
-            'rangking',
+            'ranking',
             'rearrangedArray',
             'new_array',
             'show_normalisasi'
         ));
 
         // dd($min, $max);
+    }
+
+
+    public function ranking()
+    {
+
+        $title = 'Halaman Ranking';
+        $ranking = DB::table('ranking')
+            ->join('karyawan', 'karyawan.id', '=', 'ranking.karyawan_id')
+            ->select('karyawan.nama', 'karyawan.id', 'ranking.nilai')
+            ->orderBy('nilai', 'desc')->get();
+
+        return view('pages.nilai.ranking', compact('title', 'ranking'));
     }
 }

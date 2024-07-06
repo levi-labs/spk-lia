@@ -7,13 +7,7 @@
                 <div class="card-block-small">
                     <i class="icofont icofont-pie-chart bg-c-blue card1-icon"></i>
                     <span class="text-c-blue f-w-600">Kriteria</span>
-                    <h4>49/50GB</h4>
-                    <div>
-                        <span class="f-left m-t-10 text-muted">
-                            <i class="text-c-blue f-16 icofont icofont-warning m-r-10"></i>Get
-                            more space
-                        </span>
-                    </div>
+                    <h4>{{ $kriteria }}</h4>
                 </div>
             </div>
         </div>
@@ -24,13 +18,7 @@
                 <div class="card-block-small">
                     <i class="icofont icofont-ui-home bg-c-pink card1-icon"></i>
                     <span class="text-c-pink f-w-600">Karyawan</span>
-                    <h4>$23,589</h4>
-                    <div>
-                        <span class="f-left m-t-10 text-muted">
-                            <i class="text-c-pink f-16 icofont icofont-calendar m-r-10"></i>Last
-                            24 hours
-                        </span>
-                    </div>
+                    <h4>{{ $karyawan }}</h4>
                 </div>
             </div>
         </div>
@@ -40,14 +28,8 @@
             <div class="card widget-card-1">
                 <div class="card-block-small">
                     <i class="icofont icofont-warning-alt bg-c-green card1-icon"></i>
-                    <span class="text-c-green f-w-600">Fixed issue</span>
-                    <h4>45</h4>
-                    <div>
-                        <span class="f-left m-t-10 text-muted">
-                            <i class="text-c-green f-16 icofont icofont-tag m-r-10"></i>Tracked
-                            via microsoft
-                        </span>
-                    </div>
+                    <span class="text-c-green f-w-600">Nilai</span>
+                    <h4>{{ $nilai }}</h4>
                 </div>
             </div>
         </div>
@@ -57,20 +39,14 @@
             <div class="card widget-card-1">
                 <div class="card-block-small">
                     <i class="icofont icofont-social-twitter bg-c-yellow card1-icon"></i>
-                    <span class="text-c-yellow f-w-600">Followers</span>
-                    <h4>+562</h4>
-                    <div>
-                        <span class="f-left m-t-10 text-muted">
-                            <i class="text-c-yellow f-16 icofont icofont-refresh m-r-10"></i>Just
-                            update
-                        </span>
-                    </div>
+                    <span class="text-c-yellow f-w-600">User</span>
+                    <h4>{{ $user }}</h4>
                 </div>
             </div>
         </div>
         <!-- card1 end -->
         <!-- Statestics Start -->
-        <div class="col-md-12 col-xl-8">
+        {{-- <div class="col-md-12 col-xl-8">
             <div class="card">
                 <div class="card-header">
                     <h5>Statestics</h5>
@@ -94,7 +70,7 @@
                     <div id="statestics-chart" style="height:517px;"></div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- Email Sent End -->
     </div>
