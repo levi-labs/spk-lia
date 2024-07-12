@@ -89,6 +89,11 @@ class KriteriaController extends Controller
      */
     public function destroy(Kriteria $kriteria)
     {
-        //
+        try {
+            $kriteria->delete();
+            return back()->with('success', 'Data kriteria berhasil dihapus');
+        } catch (\Exception $th) {
+            return redirect()->back()->with('error', $th->getMessage());
+        }
     }
 }

@@ -47,8 +47,8 @@
                                             <a href="{{ route('kriteria.edit', $item->id) }}" class="btn btn-info">Edit</a>
                                             <form action="{{ route('kriteria.delete', $item->id) }}" method="POST"
                                                 class="d-inline">
-                                                @csrf
                                                 @method('DELETE')
+                                                @csrf
                                                 <button type="submit" class="btn btn-danger">Delete</button>
                                             </form>
                                         </td>

@@ -134,9 +134,16 @@ class NilaiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Nilai $nilai)
+    public function destroy($id)
     {
-        //
+
+        try {
+
+            $data = Nilai::where('karyawan_id', $id)->delete();
+            return back()->with('success', 'Data Nilai berhasil dihapus');
+        } catch (\Exception $th) {
+            return redirect()->back()->with('error', $th->getMessage());
+        }
     }
 
     public function getResult()

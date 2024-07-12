@@ -61,7 +61,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/store', 'store')->name('nilai.store');
         Route::get('/edit/{nilai}', 'edit')->name('nilai.edit');
         Route::put('/update/{nilai}', 'update')->name('nilai.update');
-        Route::delete('/delete/{nilai}', 'destroy')->name('nilai.delete');
+        Route::delete('/delete/{id}', 'destroy')->name('nilai.delete');
     });
 
     Route::controller(\App\Http\Controllers\UserController::class)->prefix('users')->group(function () {
