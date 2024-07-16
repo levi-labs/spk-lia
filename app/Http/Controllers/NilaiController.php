@@ -163,7 +163,9 @@ class NilaiController extends Controller
             foreach ($nilairesult as $k => $v) {
                 $new_array[$key][$k]['id'] = $v->kriteria_id;
                 $new_array[$key][$k]['karyawan_id'] = $v->karyawan_id;
+                $new_array[$key][$k]['nama'] = $value->nama;
                 $new_array[$key][$k]['nilai'] = $v->nilai_kriteria;
+
                 // $new_array[$key][$k] = $v->nilai_kriteria;
             }
         }
@@ -253,6 +255,27 @@ class NilaiController extends Controller
                 $matrix[$i][$j]['nilai'] = $rearrangedArray[$i][$j]['nilai'] * $normalisasi_bobot;
             }
         }
+        $data_skala       = [];
+        foreach ($new_array as $key => $value) {
+            foreach ($value as $k =>  $val) {
+                $index = $val['karyawan_id'];
+                if (!isset($data_skala[$key])) {
+                    $data_skala[] = [
+                        'id' => $val['id'],
+                        'karyawan_id' => $val['karyawan_id'],
+                        'nama' => $karyawan->where('id', $val['karyawan_id'])->first()->nama,
+
+                    ];
+                }
+
+                if ($val['karyawan_id'] === $data_skala[$key]['karyawan_id']) {
+
+                    $data_skala[$key][$val['id']] = $val['nilai'];
+                } else {
+                    $data_skala[$val['karyawan_id']][$val['id']] = $val['nilai'];
+                }
+            }
+        }
 
         $show_normalisasi = [];
 
@@ -263,6 +286,7 @@ class NilaiController extends Controller
                     $show_normalisasi[] = [
                         'id' => $val['id'],
                         'karyawan_id' => $val['karyawan_id'],
+                        'nama' => $karyawan->where('id', $val['karyawan_id'])->first()->nama,
 
                     ];
                 }
@@ -305,14 +329,15 @@ class NilaiController extends Controller
             ->select('karyawan.nama', 'karyawan.id', 'ranking.nilai')
             ->orderBy('ranking.nilai', 'desc')
             ->get();
-        // dd($new_array, $rearrangedArray, $rangking, $nilai);
-        return view('pages.nilai.ranking', compact(
+        // dd($ranking, $data_skala, $show_normalisasi);
+        return view('pages.nilai.perhitungan', compact(
             'title',
             'nilai',
-            'ranking',
             'rearrangedArray',
             'new_array',
-            'show_normalisasi'
+            'data_skala',
+            'show_normalisasi',
+            'ranking',
         ));
 
         // dd($min, $max);
