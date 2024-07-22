@@ -55,6 +55,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::controller(\App\Http\Controllers\NilaiController::class)->prefix('nilai')->group(function () {
         Route::get('/', 'index')->name('nilai.index');
         Route::get('/ranking', 'ranking')->name('nilai.ranking');
+        Route::get('/print-ranking', 'print')->name('nilai.print');
         Route::get('/create', 'create')->name('nilai.create');
         Route::get('/process', 'getResult')->name('nilai.process');
         Route::get('/{karyawan}', 'show')->name('nilai.show');

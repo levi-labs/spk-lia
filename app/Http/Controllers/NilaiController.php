@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Karyawan;
 use App\Models\Kriteria;
 use App\Models\Nilai;
+use App\Models\Ranking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Output\ConsoleOutput;
@@ -354,5 +355,18 @@ class NilaiController extends Controller
             ->orderBy('nilai', 'desc')->get();
 
         return view('pages.nilai.ranking', compact('title', 'ranking'));
+    }
+
+    public function print()
+    {
+
+        $title = 'Halaman Cetak Nilai Ranking';
+
+        $data =  DB::table('ranking')
+            ->join('karyawan', 'karyawan.id', '=', 'ranking.karyawan_id')
+            ->select('karyawan.nama as karyawan', 'karyawan.id', 'ranking.nilai')
+            ->orderBy('nilai', 'desc')->get();
+
+        return view('pages.nilai.print-ranking', compact('title', 'data'));
     }
 }

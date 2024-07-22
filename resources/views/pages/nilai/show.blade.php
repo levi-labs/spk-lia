@@ -60,7 +60,7 @@
             <div class="card">
 
                 <div class="card-header">
-                    <h5>Daftar Nilai</h5>
+                    <h5>Daftar Nilai Kriteria berdasarkan Skala</h5>
                 </div>
                 @if (session()->has('success'))
                     <div class="alert alert-success">
@@ -79,7 +79,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Kriteria</th>
-                                    <th>Nilai</th>
+                                    <th>Nilai Skala</th>
                                 </tr>
                             </thead>
                             <tbody>

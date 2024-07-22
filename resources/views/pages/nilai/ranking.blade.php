@@ -6,6 +6,8 @@
 
                 <div class="card-header">
                     <h5>Ranking</h5>
+                    <a href="{{ route('nilai.print') }}" class="btn btn-light" target="_blank"><i class="ti-printer"></i>
+                        Print</a>
                 </div>
                 @if (session()->has('success'))
                     <div class="alert alert-success">
@@ -53,6 +55,7 @@
             <div class="card">
                 <div class="card-header">
                     <h5>Nilai Ranking</h5>
+
                     {{-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> --}}
                     <div class="card-header-right"> <i class="icofont icofont-spinner-alt-5"></i> </div>
                 </div>
