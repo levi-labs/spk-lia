@@ -12,7 +12,7 @@
 
 
     <div class="table-print">
-        <button id="btn-print" class="d-print-table">Print</button>
+        <button id="btn-print" class="d-print-table" onclick="window.print()">Print</button>
         <center>
             <h4>Berikut adalah hasil rekapitulasi kinerja karyawan berdasarkan ranking</h4>
         </center>
