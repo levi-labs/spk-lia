@@ -68,7 +68,8 @@
                                     <div class="col-sm-8">
                                         <select name="level_user" class="form-control">
                                             <option selected disabled>Pilih </option>
-                                            <option {{ $user->level_user === 'master' ? 'selected' : '' }} value="master">
+                                            <option {{ $user->level_user === 'direktur' ? 'selected' : '' }}
+                                                value="master">
                                                 master</option>
                                             <option {{ $user->level_user === 'hrd' ? 'selected' : '' }} value="hrd">hrd
                                             </option>

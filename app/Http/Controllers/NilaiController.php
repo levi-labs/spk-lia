@@ -76,7 +76,7 @@ class NilaiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Nilai $karyawan)
+    public function show(Karyawan $karyawan)
     {
 
         $title = 'Halaman Detail Nilai';
@@ -91,13 +91,13 @@ class NilaiController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Nilai $nilai)
+    public function edit(Karyawan $karyawan)
     {
         $title = 'Halaman Edit Nilai';
 
         $kriteria = Kriteria::all();
-        $karyawan = Karyawan::where('id', $nilai->karyawan_id)->first();
-        $nilai = Nilai::where('karyawan_id', $nilai->karyawan_id)->get();
+        $karyawan = Karyawan::where('id', $karyawan->id)->first();
+        $nilai = Nilai::where('karyawan_id', $karyawan->id)->get();
 
         return view('pages.nilai.edit', compact('title', 'kriteria', 'nilai', 'karyawan'));
     }
@@ -180,19 +180,19 @@ class NilaiController extends Controller
             }
         }
 
+
         $max = [];
         $min = [];
-        // dd($reverse_array);
+
+
         for ($i = 0; $i < count($reverse_array); $i++) {
             for ($j = 0; $j < count($reverse_array[$i]); $j++) {
                 $value = $reverse_array[$i][$j]['nilai']['nilai'];
-
                 if (empty($max[$i])) {
                     $max[$i] = $value;
                 } else {
                     $max[$i] = max($max[$i], $value);
                 }
-
                 if (empty($min[$i])) {
                     $min[$i] = $value;
                 } else {
@@ -200,6 +200,8 @@ class NilaiController extends Controller
                 }
             }
         }
+
+
         // dd($min, $max);
 
 

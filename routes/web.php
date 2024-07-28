@@ -60,8 +60,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/process', 'getResult')->name('nilai.process');
         Route::get('/{karyawan}', 'show')->name('nilai.show');
         Route::post('/store', 'store')->name('nilai.store');
-        Route::get('/edit/{nilai}', 'edit')->name('nilai.edit');
-        Route::put('/update/{nilai}', 'update')->name('nilai.update');
+        Route::get('/edit/{karyawan}', 'edit')->name('nilai.edit');
+        Route::put('/update/{karyawan}', 'update')->name('nilai.update');
         Route::delete('/delete/{id}', 'destroy')->name('nilai.delete');
     });
 

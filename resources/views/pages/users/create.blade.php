@@ -72,8 +72,8 @@
                                     <div class="col-sm-8">
                                         <select name="level_user" class="form-control">
                                             <option selected disabled>Pilih </option>
-                                            <option value="master">master</option>
-                                            <option value="hrd">hrd</option>
+                                            <option value="direktur">Direktur</option>
+                                            <option value="hrd">HRD</option>
                                         </select>
                                         @error('level_user')
                                             <span class="text-danger text-sm">{{ $message }}</span>

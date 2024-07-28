@@ -79,7 +79,7 @@
 
         </ul>
 
-        @if (auth()->user()->level_user == 'master')
+        @if (auth()->user()->level_user == 'direktur')
             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.other">User Management</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li>
