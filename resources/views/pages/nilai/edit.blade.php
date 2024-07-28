@@ -9,7 +9,7 @@
 
                     <h5>{{ $title }}</h5>
                     <div class="row my-2 mx-2">
-                        <a href="{{ route('kriteria.index') }}" class="btn btn-secondary">Kembali</a>
+                        <a href="{{ route('nilai.index') }}" class="btn btn-secondary">Kembali</a>
                     </div>
                     @if (session()->has('error'))
                         <div class="alert alert-danger">
