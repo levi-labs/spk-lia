@@ -51,7 +51,7 @@
                             <div class="auth-box">
                                 <div class="row m-b-20">
                                     <div class="col-md-12">
-                                        <h3 class="text-left txt-primary">Sign In</h3>
+                                        <h3 class="text-left txt-primary">Log In</h3>
                                     </div>
                                 </div>
                                 <hr />
@@ -74,7 +74,7 @@
                                 <div class="row m-t-30">
                                     <div class="col-md-12">
                                         <button type="submit"
-                                            class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Sign
+                                            class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Log
                                             in</button>
                                     </div>
                                 </div>
