@@ -69,8 +69,8 @@
                                         <select name="level_user" class="form-control">
                                             <option selected disabled>Pilih </option>
                                             <option {{ $user->level_user === 'direktur' ? 'selected' : '' }}
-                                                value="master">
-                                                master</option>
+                                                value="direktur">
+                                                direktur</option>
                                             <option {{ $user->level_user === 'hrd' ? 'selected' : '' }} value="hrd">hrd
                                             </option>
                                         </select>
